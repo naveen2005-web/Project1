@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>casestudy</title>
+  <link rel="shortcut icon" href="images/anime.jpg" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <style>
+    body {
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+    }
+
+    .navbar-nav .nav-link {
+      color: white !important;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      font-size: 16px;
+    }
+
+    .navbar {
+      height: 80px;
+    }
+
+    .no-margin {
+      margin: 0;
+    }
+
+    .extra-top-space {
+      margin-top: 40px;
+    }
+
+    .post {
+      position: absolute;
+      top: 55%;
+      left: 30%;
+      transform: translate(-50%, -50%);
+    }
+
+    .iti {
+      width: 100%;
+    }
+
+    .iti__selected-dial-code {
+      color: black !important;
+    }
+
+    .icon-box {
+      display: inline-block;
+      padding: 10px;
+      border: none;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      color: white;
+    }
+
+    .icon-box:active {
+      transform: scale(0.9);
+    }
+
+    .footer-hover:hover {
+      color: #aa2010 !important;
+      text-decoration: underline;
+    }
+
+    @media (min-width: 768px) and (max-width: 991.98px) {
+      .navbar-nav .nav-link {
+        font-size: 13px;
+        padding-left: 6px !important;
+        padding-right: 6px !important;
+      }
+    }
+
+    @media screen and (max-width:600px) {
+      .mntxt01{
+        font-size: 17px !important;
+        padding-top: 150px;
+        padding-left: 12px;
+      }
+        .mntxt02{
+        font-size: 15px !important;
+        padding-left: 12px;
+        }
+        .mntxt03{
+        font-size: 15px !important;
+        padding-left: 12px;
+        padding-bottom: 20px;
+      }
+    }
+
+    #customMenu {
+      display: none;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      background-color: #000;
+      z-index: 1050;
+      padding: 1rem;
+    }
+
+    #customMenu.show {
+      display: block;
+      animation: slideDown 0.3s ease-in-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-20px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    #customMenu a {
+      color: #fff;
+      display: block;
+      margin-bottom: 10px;
+      text-decoration: none;
+    }
+
+    .mobile-phone {
+      color: #fff;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .mobile-phone i {
+      margin-right: 5px;
+    }
+
+    .mobile-header-extra .spacer {
+      height: 10px;
+    }
+    .map-carousel-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  
+    .map-carousel-item {
+      text-align: center;
+      padding: 20px;
+    }
+  
+    .map-carousel-img {
+      max-height: 180px;
+      width: auto;
+      margin: 0 auto;
+      border-radius: 8px;
+    }
+  
+    .map-carousel-caption {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #333;
+    }
+  
+    .carousel-control-prev, 
+    .carousel-control-next {
+      width: auto;
+      opacity: 1;
+    }
+  
+    .carousel-control-prev-icon, 
+    .carousel-control-next-icon {
+      background-color: rgba(0,0,0,0.5);
+      border-radius: 50%;
+      padding: 15px;
+      background-size: 60%;
+    }
+    .fixed-enquiry-btn {
+      position: fixed;
+      top: 280px;
+      right: -78px;
+      z-index: 1050;
+    } 
+    .enquiry-btn {
+      background-color: #ec2135;
+      color: white;
+      border: none;
+      border-radius: 20px 20px 0 0;
+      width: 200px;
+      height: 40px;
+      font-size: 18px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      transform: rotate(-90deg);      
+    }
+    .modal-content {
+      border-radius: 20px 20px 20px 20px !important;
+    }   
+    .modal-header {
+      background-color: #ec2135;
+      color: white;
+      border-radius:0 0 !important;
+    }
+    
+    .btn-close {
+      filter: invert(1);
+    }
+    .modal.fade .modal-dialog {
+    position: fixed;
+    top: 30px;
+    right: 0;
+    margin: 0;
+    width: 330px; 
+    height: 94%;
+    border-radius: 20px 20px 20px 20px !important;
+    transform: translateX(100%);
+    }
+    .modal.fade.show .modal-dialog {
+    transform: translateX(0);
+    }
+    .modal-content {
+    height: 100%;
+    border-radius: 0;
+    }
+    .modal-header {
+    border-radius: 10px 10px 0 0 !important;
+    }
+    @media (max-width: 576px) {
+   .modal.fade .modal-dialog {
+    width: 100%;
+     }
+    }
+    .modal-footer {
+      background-color: rgb(240, 239, 239);
+      border-top: none;
+      padding-top: 20px;
+      gap: 10px;
+    }
+    .modal-footer a {
+      color: #333;
+      transition: color 0.3s ease;
+    }
+    .modal-footer a:hover {
+      color: #ec2135;
+      text-decoration: none;
+    }
+    .modal-footer .d-flex.justify-content-center {
+      gap: 160px !important; 
+    }
+
+    .modal-footer .icon-link {
+      font-size: 24px;
+      color: #333;
+      transition: all 0.3s ease;
+    }
+    .modal-footer .icon-link:hover {
+      color: #ec2135;
+      transform: scale(1.1);
+    }
+    .modal-backdrop {
+  display: none !important;
+}
+body.modal-open {
+  overflow: auto !important;
+  padding-right: 0 !important;
+}
+  #carouselContainer {
+    width: 100%;
+    overflow: hidden;
+  }
+  #carouselInner {
+    display: flex;
+    transition: transform 0.5s ease;
+
+  }
+  .carousel-item-wrapper {
+    flex: 0 0 calc(100% / 3);
+    /* 3 items per view */
+    max-width: calc(100% / 3);
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  .mapk img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    top: 35%;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    z-index: 10;
+  }
+  .carousel-control-prev {
+    left: 2px;
+  }
+  .carousel-control-next {
+    right: 2px;
+  }
+.cntrlprev .carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 16 16'%3E%3Cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L6.707 7l4.647 4.646a.5.5 0 0 1-.708.708l-5-5a.5.5 0 0 1 0-.708l5-5a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
+}
+.cntrlnxt .carousel-control-next-icon {
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3E%3Cpath transform='scale(-1,1) translate(-16,0)' d='M11.354 1.646a.5.5 0 0 1 0 .708L6.707 7l4.647 4.646a.5.5 0 0 1-.708.708l-5-5a.5.5 0 0 1 0-.708l5-5a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
+}
+  .cntrlprev011 .carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 16 16'%3E%3Cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L6.707 7l4.647 4.646a.5.5 0 0 1-.708.708l-5-5a.5.5 0 0 1 0-.708l5-5a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
+}
+.cntrlnxt011 .carousel-control-next-icon {
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3E%3Cpath transform='scale(-1,1) translate(-16,0)' d='M11.354 1.646a.5.5 0 0 1 0 .708L6.707 7l4.647 4.646a.5.5 0 0 1-.708.708l-5-5a.5.5 0 0 1 0-.708l5-5a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
+}
+@media (max-width: 991.98px) {
+  .process-flow {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .process-box {
+    width: 100%;
+    height: 100%;
+  }
+  .process-arrow {
+    display: none !important;
+  }
+}
+</style>
+</head>
+<body>
+<!-- Simple Enquiry Button -->
+<div class="fixed-enquiry-btn">
+  <button class="enquiry-btn" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+    Enquire Now!
+  </button>
+</div>
+
+<!-- Button that opens modal -->
+<button data-bs-toggle="modal" data-bs-target="#enquiryModal">
+  Enquire Now!
+</button>
+
+<!-- Your existing modal (unchanged) -->
+<div class="modal fade" id="enquiryModal" tabindex="-1" aria-labelledby="enquiryModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="enquiryModalLabel">Enquire Now</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-2">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" required>
+          </div>
+          <div class="mb-2">
+            <label for="phone" class="form-label">Phone Number</label>
+            <div class="input-group">
+              <button class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span id="selected-flag" class="fi fi-in me-2" style="font-size: 1.2em;"></span>
+                <span id="selected-code">+91</span>
+              </button>
+              <ul class="dropdown-menu" style="max-height: 300px; overflow-y: auto;">
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="#" data-code="+1" data-flag="us">
+                    <span class="fi fi-us me-2" style="font-size: 1.2em;"></span>
+                    <span>+1 United States</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="#" data-code="+44" data-flag="gb">
+                    <span class="fi fi-gb me-2" style="font-size: 1.2em;"></span>
+                    <span>+44 United Kingdom</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item d-flex align-items-center active" href="#" data-code="+91" data-flag="in">
+                    <span class="fi fi-in me-2" style="font-size: 1.2em;"></span>
+                    <span>+91 India</span>
+                  </a>
+                </li>
+              </ul>
+              <input type="tel" class="form-control" id="phone" placeholder="Enter phone number">
+            </div>
+          </div>
+          <div class="mb-2">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" required>
+          </div>
+          <div class="mb-2">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" rows="1"></textarea>
+          </div>
+          <button type="submit" class="btn btn-danger w-100">
+            <i class="fas fa-location-arrow me-0"></i> Submit
+          </button>
+        </form>
+      </div>
+      <div class="modal-footer d-flex flex-column align-items-center">
+        <div class="d-flex justify-content-center mb-2">
+          <a href="#" target="_blank" class="icon-link mx-2">
+            <i class="fas fa-home"></i>
+          </a>
+          <a href="#" target="_blank" class="icon-link mx-2">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+        <div class="d-flex align-items-center">
+          <img src="https://embed.tawk.to/_s/v4/assets/images/Tawky_16x16.svg" alt="tawk.to logo" style="height: 16px; width: 16px; margin-right: 5px;">
+          <a href="#" class="text-center text-decoration-none" target="_blank" style="font-size: 0.8rem;">Powered by tawk.to</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Required Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Your existing script (unchanged) -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('selected-flag').className = 'fi fi-in me-2';
+  document.getElementById('selected-code').textContent = '+91';
+});
+
+document.querySelectorAll('.dropdown-item').forEach(item => {
+  item.addEventListener('click', function(e) {
+    e.preventDefault();
+    const code = this.getAttribute('data-code');
+    const flag = this.getAttribute('data-flag');
+
+    document.getElementById('selected-code').textContent = code;
+    const flagElement = document.getElementById('selected-flag');
+    flagElement.className = `fi fi-${flag} me-2`;
+    flagElement.style.fontSize = '1.2em';
+
+    document.querySelectorAll('.dropdown-item').forEach(i => i.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+</script>
+  <header style="background-color: black;" class="fixed-top">
+    <nav class="navbar navbar-dark">
+      <div class="container-fluid">
+        <div class="row w-100 align-items-center">
+          <div class="d-flex justify-content-between align-items-center d-xl-none w-100 py-2">
+            <a class="navbar-brand" href="#">
+              <img src="https://www.budindia.com/images/Advertising-agency-bangalore-Logo.png" alt="Logo" height="40">
+            </a>
+            <div class="text-end">
+              <button class="btn p-0 border-0 bg-transparent" type="button" onclick="toggleMenu()">
+                <img src="images/mic.jpg" alt="menu" width="30" height="30">
+              </button>
+              <div class="mobile-phone">
+                <a href="#" class="text-white text-decoration-none">
+                  <i class="bi bi-telephone-fill"></i> +91 98 86 833138
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-auto d-none d-xl-flex align-items-center">
+            <a class="navbar-brand" href="#">
+              <img src="https://www.budindia.com/images/Advertising-agency-bangalore-Logo.png" alt="Logo" height="50">
+            </a>
+          </div>
+          <div class="col-md d-none d-xl-block">
+            <div class="d-flex justify-content-end overflow-auto flex-nowrap">
+              <ul class="navbar-nav flex-row flex-nowrap align-items-center" style="gap: 10px;">
+                <li class="nav-item"><a class="nav-link px-1" style="font-size:14px; white-space:nowrap;" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link px-1" style="font-size:14px; white-space:nowrap;" href="#">Know Us</a></li>
+                <li class="nav-item"><a class="nav-link px-1" style="font-size:14px; white-space:nowrap;" href="#">Services</a></li>
+                <li class="nav-item"><a class="nav-link px-1" style="font-size:14px; white-space:nowrap;" href="#">Work</a></li>
+                <li class="nav-item"><a class="nav-link px-1" style="font-size:14px; white-space:nowrap;" href="#">Case Study</a></li>
+                <li class="nav-item"><a class="nav-link px-1" style="font-size:14px; white-space:nowrap;" href="#">Digital Marketing</a></li>
+                <li class="nav-item"><a class="nav-link px-1" style="font-size:14px; white-space:nowrap;" href="#">Social Media</a></li>
+                <li class="nav-item"><a class="nav-link px-1" style="font-size:14px; white-space:nowrap;" href="#">Film</a></li>
+                <li class="nav-item"><a class="nav-link px-1" style="font-size:14px; white-space:nowrap;" href="#">Website Design</a></li>
+                <li class="nav-item"><a class="nav-link px-1" style="font-size:14px; white-space:nowrap;" href="#">Contact</a></li>
+                <li class="nav-item">
+                  <a class="nav-link px-3" style="font-size:13px; white-space:nowrap;" href="#">
+                    <i class="bi bi-telephone-fill"></i> +91 98 86 833138
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="customMenu" class="d-xl-none">
+        <a href="#">Home</a>
+        <a href="#">Know Us</a>
+        <a href="#">Services</a>
+        <a href="#">Work</a>
+        <a href="#">Case Study</a>
+        <a href="#">Digital Marketing</a>
+        <a href="#">Social Media</a>
+        <a href="#">Film</a>
+        <a href="#">Website Design</a>
+        <a href="#">Contact</a>
+      </div>
+    </nav>
+  </header>
+  <section style="position: relative; padding-top: 50px;">
+    <img src="https://www.budindia.com/images/ttl-casestudy/ttl-heronew.jpg" alt="" class="img-fluid w-100" style="height: 100%;">
+    <div class="container text-white text-center">
+      <div class="post">
+        <h3 class="fs-5 fs-md-4 fs-lg-2 mntxt01">LinkedIn Ads Case Study:</h3>
+        <p class="no-margin fs-3 fs-md-3 fs-lg-1 mntxt02">   Our Turbine Leader's Digital Impact with</p>
+        <p class="fs-3 fs-md-3 fs-lg-1 mntxt03">Targeted Video Campaigns</p>
+      </div>
+    </div>
+  </section>
+ <section>
+  <div data-aos="fade-up"
+     data-aos-duration="2000">
+  <div class="container my-5">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <h4 class="text-danger text-uppercase text-end fw-bold">About the Client</h4>
+        <p class="text-end">
+          Our turbine client is one of India's leading industrial steam turbine manufacturers, known globally for its
+          innovation, engineering excellence, and reliable performance across power generation and industrial applications. 
+          With installations in over 75 countries, our turbine client is a key player in driving energy efficiency and 
+          sustainability for a wide range of industries including textiles, chemicals, and steel.
+        </p>
+      </div>
+      <div class="col-md-6 d-flex justify-content-center align-items-center">
+        <img src="https://www.budindia.com/images/ttl-casestudy/ttrImg.png" class="img-fluid m-4" alt="Client Image">
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+  <section>
+    <div data-aos="fade-up"
+     data-aos-duration="2000">
+    <div class="container my-5">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <img src="https://www.budindia.com/images/ttl-casestudy/ttl-blseo.png" class="img-fluid">
+        </div>
+        <div class="col-md-6 text-dark">
+          <h4 class="text-danger text-uppercase fw-bold">Project Objective</h4>
+          <p>
+            The aim was to enhance brand visibility and engagement among decision-makers in industrial and energy
+            sectors through a focused
+            LinkedIn video campaign, emphasizing   our turbine client's leadership in steam turbine solutions.
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+<section div data-aos="fade-up" data-aos-duration="3000" style="background-color: #f8f9fa;">
+    <div class="container pt-5 py-5">
+      <div class="text-center mb-5">
+        <h4 class="text-danger text-uppercase fw-bold pt-2">Challenges</h4>
+        <p>Prior to this initiative, our turbine client faced:</p>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-4 position-relative">
+          <img src="https://www.budindia.com/images/ttl-casestudy/fmsm001.png" alt="Factory Icon" width="50">
+          <p class="mt-4">Limited engagement from niche industrial audiences on social platforms</p>
+          <div class="position-absolute end-0 top-0 h-100 d-flex align-items-center">
+            <div style="height: 60%; width: 2px; background-color: #adb5bd; transform: translateY(15%);"></div>
+          </div>
+        </div>
+        <div class="col-md-4 position-relative">
+          <img src="https://www.budindia.com/images/ttl-casestudy/fmsm002.png" alt="Video Icon" width="50">
+          <p class="mt-4">Low video completion and view-through rates across past campaigns</p>
+          <div class="position-absolute end-0 top-0 h-100 d-flex align-items-center">
+            <div style="height: 60%; width: 2px; background-color: #adb5bd; transform: translateY(15%);"></div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <img src="https://www.budindia.com/images/ttl-casestudy/fmsm003.png" alt="Attention Icon" width="50">
+          <p class="mt-4">Difficulty in capturing quality attention spans in a B2B context</p>
+        </div>
+      </div>
+    </div>
+</section> 
+  <section class="py-5 bg-white">
+    <div data-aos="fade-up"
+     data-aos-duration="2000">
+  <div class="container">
+    <div class="text-center pt-2">
+      <h4 class="text-danger text-uppercase fw-bold pt-1">Strategy and Execution</h4>
+      <p>Our digital advertising team developed a precision-driven LinkedIn campaign with the following approach:</p>
+    </div>
+    <div class="d-flex flex-wrap justify-content-center align-items-stretch pt-1 gap-4">
+      <div class="bg-light rounded p-4 text-center flex-grow-1" style="max-width: 265px; min-height: 225px;">
+        <h6><strong>Audience Targeting:</strong></h6>
+        <p>Reached top-level professionals and engineers in energy, manufacturing, and infrastructure sectors across relevant geographies</p>
+      </div>
+      <div class="d-none d-lg-flex align-items-center fs-4 text-secondary">→</div>
+      <div class="bg-light rounded p-4 text-center flex-grow-1" style="max-width: 265px; min-height: 225px;">
+        <h6><strong>Content Optimization:</strong></h6>
+        <p>Created short-format, impactful video creatives showcasing our turbine client's innovation and real-world applications</p>
+      </div>
+      <div class="d-none d-lg-flex align-items-center fs-4 text-secondary">→</div>
+      <div class="bg-light rounded p-4 text-center flex-grow-1" style="max-width: 265px; min-height: 225px;">
+        <h6><strong>Engagement Strategy:</strong></h6>
+        <p>Structured campaigns to maximize video views and completions rather than direct clicks, aligning with awareness goals</p>
+      </div>
+    </div>
+    <div data-aos="fade-up"
+     data-aos-duration="2000">
+    <div class="d-flex flex-wrap justify-content-center align-items-stretch pt-4 gap-4">
+      <div class="bg-light rounded p-4 text-center flex-grow-1" style="max-width: 265px; min-height: 225px;">
+        <h6><strong>Placement Control:</strong></h6>
+        <p>Optimized for in-feed delivery to ensure strong visibility and seamless playback experience</p>
+      </div>
+      <div class="d-none d-lg-flex align-items-center fs-4 text-secondary">→</div>
+      <div class="bg-light rounded p-4 text-center flex-grow-1" style="max-width: 265px; min-height: 225px;">
+        <h6><strong>Performance Monitoring:</strong></h6>
+        <p>Continuously monitored VCR (Video Completion Rate) and VPI (Video Plays on Impression) to assess viewer interest and refine targeting</p>
+      </div>
+    </div>
+    </div>
+    <div data-aos="fade-up"
+     data-aos-duration="2000">
+    <div class="text-center pt-5">
+      <a href="#" class="btn btn-danger rounded-pill px-4 py-2">Get in Touch</a>
+    </div>
+  </div>
+  </div>
+  </div>
+</section>
+  <section class="d-none d-md-block py-5">
+    <div data-aos="fade-up"
+    data-aos-duration="2000">
+  <div class="container">
+    <div class="row">   
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <h4 class="mnhdders fw-bold text-uppercase text-danger text-center">Our Turbine Client Goes Global</h4> 
+        <p class="mnpars text-center pt-2">By analyzing regional demand patterns and market maturity, we tailored the LinkedIn ads that reached the right people, in the right markets, at&nbsp;the&nbsp;right&nbsp;time.</p>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+
+    <div class="row mt-4">
+
+      <div id="carouselContainer" class="position-relative overflow-hidden">
+        <div id="carouselInner" class="d-flex transition-transform" style="transform: translateX(-372px);"><div class="carousel-item-wrapper">
+        <div class="mapk text-center">
+          <img src="https://www.budindia.com/images/ttl-casestudy/northusa.png" alt="North America">
+          <p class="mnpars text-center pt-3">North America</p>
+        </div>
+      </div><div class="carousel-item-wrapper">
+        <div class="mapk text-center">
+          <img src="https://www.budindia.com/images/ttl-casestudy/southusa.png" alt="South America">
+          <p class="mnpars text-center pt-3">South America</p>
+        </div>
+      </div><div class="carousel-item-wrapper">
+        <div class="mapk text-center">
+          <img src="https://www.budindia.com/images/ttl-casestudy/asia.png" alt="Asia">
+          <p class="mnpars text-center pt-3">Asia</p>
+        </div>
+      </div><div class="carousel-item-wrapper">
+        <div class="mapk text-center">
+          <img src="https://www.budindia.com/images/ttl-casestudy/europe.png" alt="Europe">
+          <p class="mnpars text-center pt-3">Europe</p>
+        </div>
+      </div><div class="carousel-item-wrapper">
+        <div class="mapk text-center">
+          <img src="https://www.budindia.com/images/ttl-casestudy/africa.png" alt="Africa">
+          <p class="mnpars text-center pt-3">Africa</p>
+        </div>
+      </div></div>
+
+        <button class="carousel-control-prev cntrlprev" type="button" id="prevBtn">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next cntrlnxt" type="button" id="nextBtn">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <script>
+  const data = [{
+      img: "https://www.budindia.com/images/ttl-casestudy/northusa.png",
+      label: "North America"
+    },
+    {
+      img: "https://www.budindia.com/images/ttl-casestudy/southusa.png",
+      label: "South America"
+    },
+    {
+      img: "https://www.budindia.com/images/ttl-casestudy/asia.png",
+      label: "Asia"
+    },
+    {
+      img: "https://www.budindia.com/images/ttl-casestudy/europe.png",
+      label: "Europe"
+    },
+    {
+      img: "https://www.budindia.com/images/ttl-casestudy/africa.png",
+      label: "Africa"
+    }
+  ];
+  const carouselInner = document.getElementById("carouselInner");
+  const visibleItems = 3;
+  let currentIndex = 0;
+  function renderCarousel() {
+    carouselInner.innerHTML = "";
+    data.forEach((item) => {
+      const div = document.createElement("div");
+      div.classList.add("carousel-item-wrapper");
+      div.innerHTML = `
+        <div class="mapk text-center">
+          <img src="${item.img}" alt="${item.label}">
+          <p class="mnpars text-center pt-3">${item.label}</p>
+        </div>
+      `;
+      carouselInner.appendChild(div);
+    });
+    updateTransform();
+  }
+  function updateTransform() {
+    const itemWidth = carouselInner.querySelector(".carousel-item-wrapper").offsetWidth;
+    carouselInner.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+  }
+  document.getElementById("nextBtn").addEventListener("click", () => {
+    if (currentIndex < data.length - visibleItems) {
+      currentIndex++;
+      updateTransform();
+    }
+  });
+  document.getElementById("prevBtn").addEventListener("click", () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateTransform();
+    }
+  });
+  renderCarousel();
+</script>
+<style>
+  #carouselContainer {
+    width: 100%;
+    overflow: hidden;
+  }
+  #carouselInner {
+    display: flex;
+    transition: transform 0.5s ease;
+
+  }
+  .carousel-item-wrapper {
+    flex: 0 0 calc(100% / 3);
+    /* 3 items per view */
+    max-width: calc(100% / 3);
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  .mapk img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    top: 35%;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    z-index: 10;
+  }
+  .carousel-control-prev {
+    left: 2px;
+  }
+  .carousel-control-next {
+    right: 2px;
+  }
+.cntrlprev .carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 16 16'%3E%3Cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L6.707 7l4.647 4.646a.5.5 0 0 1-.708.708l-5-5a.5.5 0 0 1 0-.708l5-5a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
+}
+.cntrlnxt .carousel-control-next-icon {
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3E%3Cpath transform='scale(-1,1) translate(-16,0)' d='M11.354 1.646a.5.5 0 0 1 0 .708L6.707 7l4.647 4.646a.5.5 0 0 1-.708.708l-5-5a.5.5 0 0 1 0-.708l5-5a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
+}
+  .cntrlprev011 .carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 16 16'%3E%3Cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L6.707 7l4.647 4.646a.5.5 0 0 1-.708.708l-5-5a.5.5 0 0 1 0-.708l5-5a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
+}
+.cntrlnxt011 .carousel-control-next-icon {
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3E%3Cpath transform='scale(-1,1) translate(-16,0)' d='M11.354 1.646a.5.5 0 0 1 0 .708L6.707 7l4.647 4.646a.5.5 0 0 1-.708.708l-5-5a.5.5 0 0 1 0-.708l5-5a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
+}
+@media (max-width: 991.98px) {
+  .process-flow {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .process-box {
+    width: 100%;
+    height: 100%;
+  }
+  .process-arrow {
+    display: none !important;
+  }
+}
+</style>
+</div>
+</section>
+    
+<section class="bg-white" id="results-section">
+    <div data-aos="fade-up" data-aos-duration="2000">
+        <div class="container text-center mt-2 mb-3">
+            <h4 class="text-danger text-uppercase fw-bold">Results Achieved</h4>
+            <p class="mx-auto py-1 fs-6 text-dark" style="max-width: 900px;">
+                Over a three-month campaign period, the LinkedIn video campaign delivered the following performance
+                improvements:
+            </p>
+            <div class="py-1" style="max-width: 800px; margin: 0 auto;">
+                <table class="table table-bordered" style="border-radius: 12px; overflow: hidden;">
+                    <thead class="bg-white">
+                        <tr>
+                            <th style="width: 50%; font-weight: 600; font-size: 16px;">Metric</th>
+                            <th style="font-weight: 600; font-size: 16px;">Growth Achieved</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-size: 16px;">Video Completion Rate</td>
+                            <td style="font-size: 16px; color: green;"><i class="bi bi-arrow-up-short"></i><span class="count-up" data-value="12.8">0.0</span>%</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: 16px;">Video View Rate</td>
+                            <td style="font-size: 16px; color: green;"><i class="bi bi-arrow-up-short"></i><span class="count-up" data-value="47.6">0.0</span>%</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: 16px;">Video plays on impression</td>
+                            <td style="font-size: 16px; color: green;"><i class="bi bi-arrow-up-short"></i><span class="count-up" data-value="99.1">0.0</span>%</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: 16px;">Clicks</td>
+                            <td style="font-size: 16px; color: green;"><i class="bi bi-arrow-up-short pe-1"></i><span class="count-up" data-value="0.90">0.0</span>%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    function animateValue(element, start, end, duration) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            const value = (progress * (end - start) + start).toFixed(1);
+            element.textContent = value;
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+        window.requestAnimationFrame(step);
+    }
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counters = document.querySelectorAll('.count-up');
+                counters.forEach(counter => {
+                    const target = parseFloat(counter.getAttribute('data-value'));
+                    animateValue(counter, 0, target, 2000);
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    const resultsSection = document.getElementById('results-section');
+    if (resultsSection) {
+        observer.observe(resultsSection);
+    }
+});
+
+function toggleMenu() {
+    const menu = document.getElementById("customMenu");
+    menu.classList.toggle("show");
+}
+</script>
+  <section class="text-center bg-white">
+    <div data-aos="fade-up"
+     data-aos-duration="2000">
+    <div class="container">
+      <h4 class="text-danger text-uppercase fw-bold pt-3 py-1">Conclusion</h4>
+      <p class="mx-auto" style="max-width: 800px; font-size: 16px; color: #333;">
+        The campaign successfully positioned our turbine client to a forward-thinking leader in steam turbine
+        technology.
+        By optimizing for video-driven awareness on a highly targeted professional network, the campaign generated
+        high-impact brand engagement—laying the foundation for future retargeting and deeper funnel strategies in the
+        industrial B2B segment.
+      </p>
+      <a href="#" class="btn btn-danger px-4 py-2 rounded-pill">Enquire
+        Now</a>
+    </div>
+    </div>
+  </section>
+  <section class="pt-5 text-center bg-white">
+    <div class="container">
+      <h4 class="fw-bold text-danger text-uppercase">
+        WE ARE AN OFFICIAL GOOGLE PARTNER
+      </h4>
+      <div class="py-3">
+        <a href="#">
+          <img src="https://www.budindia.com/images/google-partner-logo-1.jpg" alt="Logo" width="180" height="180"></a>
+      </div>
+    </div>
+    </div>
+  </section>
+  <section class="bg-dark text-white pt-5 pb-5">
+    <div class="container text-center text-md-start">
+      <h4 class="text-center text-uppercase fw-bold pt-2 mb-5">Is there something you want to discuss with us?</h4>
+      <div class="text-center pt-1 mb-5">
+        <a href="#" class="btn btn-danger px-3 py-2">LEAVE A MESSAGE</a>
+      </div>
+      <div class="row">
+        <div class="col-md-2 mb-5">
+          <ul class="list-unstyled">
+            <li class="d-flex justify-content-between align-items-center">
+              <a href="#"
+                class="text-white text-decoration-none footer-hover">Careers</a>
+              <a href="#"><i class="bi bi-instagram fs-4 text-white"></i></a>
+            </li>
+            <li class="pb-2"><a href="#"
+                class="text-white text-decoration-none footer-hover">Know us</a></li>
+            <li class="pb-2"><a href="#"
+                class="text-white text-decoration-none footer-hover">Works</a></li>
+            <li class="pb-2"><a href="#"
+                class="text-white text-decoration-none footer-hover">Clients</a></li>
+            <li class="pb-2"><a href="#"
+                class="text-white text-decoration-none footer-hover">Blogs</a></li>
+          </ul>
+        </div>
+        <div class="col-md-6 mb-5">
+          <h5 class="mb-3">Our services</h5>
+          <div class="row">
+            <div class="col-6 col-md-4">
+              <ul class="list-unstyled small">
+                <li class="pb-3 text-nowrap"><a href="#"
+                    class="text-white text-decoration-none footer-hover">Advertising agency</a></li>
+                <li class="pb-3 text-nowrap"><a
+                    href="#"
+                    class="text-white text-decoration-none footer-hover">Digital marketing agency</a></li>
+                <li class="pb-3 text-nowrap"><a href="#"
+                    class="text-white text-decoration-none footer-hover">Web development company</a></li>
+                <li class="pb-3 text-nowrap"><a href="#"
+                    class="text-white text-decoration-none footer-hover">SEO company</a></li>
+                <li class="pb-3 text-nowrap"><a href="#"
+                    class="text-white text-decoration-none footer-hover">PPC agency</a></li>
+                <li class="pb-3 text-nowrap"><a
+                    href="#"
+                    class="text-white text-decoration-none footer-hover">Social media agency</a></li>
+                <li class="pb-3 text-nowrap"><a
+                    href="#"
+                    class="text-white text-decoration-none footer-hover">Email marketing</a></li>
+                <li class="pb-3 text-nowrap"><a href="#"
+                    class="text-white text-decoration-none footer-hover">Shopify web development</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-md-4">
+              <ul class="list-unstyled small mx-3">
+                <li class="pb-3 text-nowrap"><a
+                    href="#"
+                    class="text-white text-decoration-none footer-hover">Influencer marketing</a></li>
+                <li class="pb-3 text-nowrap"><a href="#"
+                    class="text-white text-decoration-none footer-hover">PR agency</a></li>
+                <li class="pb-3 text-nowrap"><a
+                    href="#"
+                    class="text-white text-decoration-none footer-hover">Performance marketing</a></li>
+                <li class="pb-3 text-nowrap"><a href="#"
+                    class="text-white text-decoration-none footer-hover">TVC advertising</a></li>
+                <li class="pb-3 text-nowrap"><a href="#"
+                    class="text-white text-decoration-none footer-hover">UI/UX Designing</a></li>
+                <li class="pb-3 text-nowrap"><a href="#"
+                    class="text-white text-decoration-none footer-hover">Video production company</a></li>
+                <li class="pb-3 text-nowrap"><a href="#"
+                    class="text-white text-decoration-none footer-hover">logo design company</a></li>
+                <li class="pb-3 text-nowrap"><a href="#"
+                    class="text-white text-decoration-none footer-hover">Web hosting company</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-md-4">
+              <ul class="list-unstyled small mx-3">
+                <li class="pb-3 text-nowrap"><a href="#"
+                    class="text-white text-decoration-none footer-hover">Youtube marketing</a></li>
+                <li class="pb-3"><a href="#"
+                    class="text-white text-decoration-none footer-hover">Ecommerce development company</a></li>
+                <li class="pb-3 text-nowrap"><a
+                    href="#"
+                    class="text-white text-decoration-none footer-hover">Branding agency</a></li>
+                <li class="pb-3 text-nowrap"><a href="#"
+                    class="text-white text-decoration-none footer-hover">Creative agency</a></li>
+                <li class="pb-3"><a href="#"
+                    class="text-white text-decoration-none footer-hover">Digital marketing healthcare</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-5 border-start ps-md-4">
+          <h5 class="mb-3">Get in touch with us</h5>
+          <p class="mb-3">Bud Ideas Unboxed LLP</p>
+          <p class="mb-4 py-1">
+            <i class="bi bi-geo-alt-fill text-danger pe-2"></i>Bud Creative Ad Agency<br>
+            <a href="#"
+              style="font-size: 14px; text-decoration: none; color: #fff; cursor: pointer;" class="footer-hover">
+              C-3, Padi Pudur Nagar,<br>
+              Anna Nagar West, Mogappair East,<br>
+              Chennai, Tamil Nadu 600 037.</a>
+          </p>
+          <p class="mb-1 fs-6">
+            <i class="fa fa-address-book text-danger mb-1 pe-2"></i>Contact us :<br>
+          </p>
+          <p><a href="#" style="font-size: 14px; text-decoration: none; color: #fff; cursor: pointer;"
+              class="footer-hover">
+              Mobile : +91 98 86 833138 </a><br>
+            <a href="#" style="font-size: 14px; text-decoration: none; color: #fff; cursor: pointer;"
+              class="footer-hover">Email : manoj@budindia.com</a>
+          </p>
+          <p class="mb-1">Andhra/Telangana (Hyd)</p>
+          <p>
+            <a href="#" style="font-size: 14px; text-decoration: none; color: #fff; cursor: pointer;"
+              class="footer-hover"><i class="bi bi-telephone-fill text-danger mb-1 pe-2"></i>
+              +91 87 92 994266</a>
+          </p>
+          <p class="mb-1">Tamilnadu (Chennai)</p>
+          <p>
+            <a href="#" style="font-size: 14px; text-decoration: none; color: #fff; cursor: pointer;"
+              class="footer-hover"><i class="bi bi-telephone-fill text-danger mb-1 pe-2"></i>
+              +91 87 92 994266</a>
+          </p>
+          <p class="mb-1">USA Representative<br>
+          </p>
+          <p>
+            <a href="#"
+              style="font-size: 14px; text-decoration: none; color: #fff; cursor: pointer;" class="footer-hover">Laura
+              Gesinde
+              <br><i class="bi bi-telephone-fill text-danger mb-1 pe-2"></i>
+              +1 (832) 469-1843</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+  <section class="bg-dark text-white py-5">
+    <div class="container">
+      <h5 class="mb-0">
+        <a class="text-white text-decoration-none d-flex align-items-center" data-bs-toggle="collapse"
+        href="#quickLinksContent" role="button" aria-expanded="false" aria-controls="quickLinksContent">
+        <span style="color: red;" class="me-2"></span>
+        Quick Links
+        </a>
+      </h5>
+      <div class="collapse" id="quickLinksContent">
+        <hr class="border-light mb-5">
+        <div class="row gy-4">
+          <div class="col-md-3">
+            <ul class="list-unstyled small ps-2">
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Web development company in Bangalore</a></li>
+              <li class="pb-3"><a href="#" class="text-white text-decoration-none">Advertising
+                  agency in Bangalore</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">SEO company in Bangalore</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Logo design company in Bangalore</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Branding agency in Bangalore</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Ecommerce web development company</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Social media marketing agency Bangalore</a></li>
+              <li class="pb-3"><a href=""
+                  class="text-white text-decoration-none">Influencer marketing agency in Bangalore</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <ul class="list-unstyled small ps-2">
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Logo design company in Bangalore</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">PPC company in Bangalore</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Email marketing companies in Bangalore</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">UI/UX design company in Bangalore</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Video production company Bangalore</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Best PR agency in Bangalore</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Google Adwords company in Bangalore</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Web development company in Hyderabad</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Social media marketing company in Hyderabad</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <ul class="list-unstyled small ps-2">
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Web development company Chennai</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">SEO company in Chennai</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">PPC Agency in Chennai</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Social media marketing agency in Pune</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Social media marketing agency in Mumbai</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Web development company Mumbai</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">SEO Company in Coimbatore</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Furniture marketing Agency</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Account based Marketing</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <ul class="list-unstyled small ps-2">
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Web development company in Coimbatore</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Logo designers in Coimbatore</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Shopify developers India</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Web development agency India</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Performance marketing agency in India</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Healthcare digital marketing agency India</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Facebook advertising company</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer style="background-color: black;" class="text-white py-2 w-100">
+  <p class="mb-0 text-center">Copyright © Budindia 2025</p>
+  </footer>
+  <script>
+  AOS.init();
+</script>
+</body>
+</html>
