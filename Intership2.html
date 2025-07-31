@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>casestudy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+    body {
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+    }
+
+    .navbar-nav .nav-link {
+      color: white !important;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      font-size: 16px;
+    }
+
+    .navbar {
+      height: 80px;
+    }
+
+    .no-margin {
+      margin: 0;
+    }
+
+    .extra-top-space {
+      margin-top: 40px;
+    }
+
+    .post {
+      position: absolute;
+      top: 55%;
+      left: 30%;
+      transform: translate(-50%, -50%);
+    }
+
+    .iti {
+      width: 100%;
+    }
+
+    .iti__selected-dial-code {
+      color: black !important;
+    }
+
+    .icon-box {
+      display: inline-block;
+      padding: 10px;
+      border: none;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      color: white;
+    }
+
+    .icon-box:active {
+      transform: scale(0.9);
+    }
+
+    .footer-hover:hover {
+      color: #aa2010 !important;
+      text-decoration: underline;
+    }
+
+    @media (min-width: 768px) and (max-width: 991.98px) {
+      .navbar-nav .nav-link {
+        font-size: 13px;
+        padding-left: 6px !important;
+        padding-right: 6px !important;
+      }
+    }
+
+          .mntxt01{
+        font-size: 25px;
+        padding-top: 90px;
+        padding-left: 12px;
+      }
+
+    @media screen and (max-width:600px) {
+      .mntxt01{
+        font-size: 14px;
+        padding-top: 90px;
+        padding-left: 23px;
+      }
+        .mntxt02{
+        font-size: 14px !important;
+        padding-left: 20px;
+        }
+        .mntxt03{
+        font-size: 14px !important;
+        padding-left: 12px;
+        padding-bottom: 30px;
+      }
+    }
+
+    #customMenu {
+      display: none;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      background-color: #000;
+      z-index: 1050;
+      padding: 1rem;
+    }
+
+    #customMenu.show {
+      display: block;
+      animation: slideDown 0.3s ease-in-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-20px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    #customMenu a {
+      color: #fff;
+      display: block;
+      margin-bottom: 10px;
+      text-decoration: none;
+    }
+
+    .mobile-phone {
+      color: #fff;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .mobile-phone i {
+      margin-right: 5px;
+    }
+
+    .mobile-header-extra .spacer {
+      height: 10px;
+    }
+    .map-carousel-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  
+    .map-carousel-item {
+      text-align: center;
+      padding: 20px;
+    }
+  
+    .map-carousel-img {
+      max-height: 180px;
+      width: auto;
+      margin: 0 auto;
+      border-radius: 8px;
+    }
+  
+    .map-carousel-caption {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #333;
+    }
+  
+    .carousel-control-prev, 
+    .carousel-control-next {
+      width: auto;
+      opacity: 1;
+    }
+  
+    .carousel-control-prev-icon, 
+    .carousel-control-next-icon {
+      background-color: rgba(0,0,0,0.5);
+      border-radius: 50%;
+      padding: 15px;
+      background-size: 60%;
+    }
+    .fixed-enquiry-btn {
+      position: fixed;
+      top: 200px;
+      right: -78px;
+      z-index: 1050;
+    } 
+    .enquiry-btn {
+      background-color: #ec2135;
+      color: white;
+      border: none;
+      border-radius: 20px 20px 0 0;
+      width: 180px;
+      height: 45px;
+      font-size: 16px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      transform: rotate(-90deg);      
+    }
+    .modal-content {
+      border-radius: 20px 20px 20px 20px !important;
+    }   
+    .modal-header {
+      background-color: #ec2135;
+      color: white;
+      border-radius:0 0 !important;
+    }
+    
+    .btn-close {
+      filter: invert(1);
+    }
+    .modal.fade .modal-dialog {
+    position: fixed;
+    top: 30px;
+    right: 0;
+    margin: 0;
+    width: 330px; 
+    height: 94%;
+    border-radius: 20px 20px 20px 20px !important;
+    transform: translateX(100%);
+    }
+    .modal.fade.show .modal-dialog {
+    transform: translateX(0);
+    }
+    .modal-content {
+    height: 100%;
+    border-radius: 0;
+    }
+    .modal-header {
+    border-radius: 10px 10px 0 0 !important;
+    }
+    @media (max-width: 576px) {
+   .modal.fade .modal-dialog {
+    width: 100%;
+     }
+    }
+    .modal-footer {
+      background-color: rgb(240, 239, 239);
+      border-top: none;
+      padding-top: 20px;
+      gap: 10px;
+    }
+    .modal-footer a {
+      color: #333;
+      transition: color 0.3s ease;
+    }
+    .modal-footer a:hover {
+      color: #ec2135;
+      text-decoration: none;
+    }
+    .modal-footer .d-flex.justify-content-center {
+      gap: 160px !important; 
+    }
+
+    .modal-footer .icon-link {
+      font-size: 24px;
+      color: #333;
+      transition: all 0.3s ease;
+    }
+    .modal-footer .icon-link:hover {
+      color: #ec2135;
+      transform: scale(1.1);
+    }
+    .modal-backdrop {
+  display: none !important;
+}
+body.modal-open {
+  overflow: auto !important;
+  padding-right: 0 !important;
+}
+  #carouselContainer {
+    width: 100%;
+    overflow: hidden;
+  }
+  #carouselInner {
+    display: flex;
+    transition: transform 0.5s ease;
+
+  }
+  .carousel-item-wrapper {
+    flex: 0 0 calc(100% / 3);
+    /* 3 items per view */
+    max-width: calc(100% / 3);
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  .mapk img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    top: 35%;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    z-index: 10;
+  }
+  .carousel-control-prev {
+    left: 2px;
+  }
+  .carousel-control-next {
+    right: 2px;
+  }
+.cntrlprev .carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 16 16'%3E%3Cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L6.707 7l4.647 4.646a.5.5 0 0 1-.708.708l-5-5a.5.5 0 0 1 0-.708l5-5a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
+}
+.cntrlnxt .carousel-control-next-icon {
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3E%3Cpath transform='scale(-1,1) translate(-16,0)' d='M11.354 1.646a.5.5 0 0 1 0 .708L6.707 7l4.647 4.646a.5.5 0 0 1-.708.708l-5-5a.5.5 0 0 1 0-.708l5-5a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
+}
+  .cntrlprev011 .carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 16 16'%3E%3Cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L6.707 7l4.647 4.646a.5.5 0 0 1-.708.708l-5-5a.5.5 0 0 1 0-.708l5-5a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
+}
+.cntrlnxt011 .carousel-control-next-icon {
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3E%3Cpath transform='scale(-1,1) translate(-16,0)' d='M11.354 1.646a.5.5 0 0 1 0 .708L6.707 7l4.647 4.646a.5.5 0 0 1-.708.708l-5-5a.5.5 0 0 1 0-.708l5-5a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
+}
+@media (max-width: 991.98px) {
+  .process-flow {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .process-box {
+    width: 100%;
+    height: 100%;
+  }
+  .process-arrow {
+    display: none !important;
+  }
+}
+    .custom-button-style input {
+      border: 1px solid #ccc;
+      padding: 10px 10px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 295px;
+      border-radius: 5px;
+      height: 40px;
+    }
+    .iti {
+      width: 90%;
+    }
+body {
+overflow-x: hidden;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+main {
+flex: 1;
+}
+body {
+font-family: 'Arial', sans-serif;
+}
+.navbar-nav .nav-link {
+color: white !important;
+padding-top: 20px;
+padding-bottom: 20px;
+font-size: 16px;
+}
+.navbar {
+height: 80px;
+}
+.no-margin {
+margin: 0;
+}
+.extra-top-space {
+margin-top: 40px;
+}
+.post {
+position: absolute;
+top: 55%;
+left: 30%;
+transform: translate(-50%, -50%);
+}
+.iti {
+width: 100%;
+}
+.iti__selected-dial-code {
+color: black !important;
+}
+.icon-box {
+display: inline-block;
+padding: 10px;
+border: none;
+border-radius: 50%;
+transition: all 0.3s ease;
+cursor: pointer;
+color: white;
+}
+.icon-box:active {
+transform: scale(0.9);
+}
+.footer-hover:hover {
+color: #aa2010 !important;
+text-decoration: underline;
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+.navbar-nav .nav-link {
+font-size: 13px;
+padding-left: 6px !important;
+padding-right: 6px !important;
+}
+}
+#customMenu {
+display: none;
+position: absolute;
+top: 70px;
+left: 0;
+width: 100%;
+background-color: #000;
+z-index: 1050;
+padding: 1rem;
+}
+#customMenu.show {
+display: block;
+animation: slideDown 0.3s ease-in-out;
+}
+@keyframes slideDown {
+from {
+transform: translateY(-20px);
+opacity: 0;
+}
+to {
+transform: translateY(0);
+opacity: 1;
+}
+}
+#customMenu a {
+color: #fff;
+display: block;
+margin-bottom: 10px;
+text-decoration: none;
+}
+.mobile-phone {
+color: #fff;
+font-size: 14px;
+margin-top: 5px;
+}
+.mobile-phone i {
+margin-right: 5px;
+}
+.mobile-header-extra .spacer {
+height: 10px;
+}
+.fixed-enquiry-btn {
+position: fixed;
+top: 280px;
+right: -78px;
+z-index: 1050;
+} 
+.enquiry-btn {
+background-color: #ec2135;
+color: white;
+border: none;
+border-radius: 20px 20px 0 0;
+width: 200px;
+height: 40px;
+font-size: 18px;
+box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+transition: all 0.3s ease;
+transform: rotate(-90deg);      
+}
+.modal-content {
+border-radius: 20px;
+}   
+.modal-header {
+background-color: #ec2135;
+color: white;
+border-radius: 10px 10px 0 0;
+}  
+.btn-close {
+filter: invert(1);
+}
+.modal.fade .modal-dialog {
+position: fixed;
+top: 30px;
+right: 0;
+margin: 0;
+width: 330px; 
+height: 94%;
+transform: translateX(100%);
+}
+.modal.fade.show .modal-dialog {
+transform: translateX(0);
+}
+.modal-content {
+height: 100%;
+border-radius: 0;
+}
+.modal-header {
+border-radius: 0;
+}
+@media (max-width: 576px) {
+.modal.fade .modal-dialog {
+width: 100%;
+}
+}
+.tab-btn img {
+filter: grayscale(100%);
+opacity: 0.5;
+transition: all 0.3s ease;
+}
+.tab-btn:hover img {
+filter: grayscale(0%);
+opacity: 1;
+}
+.tab-btn.active img {
+filter: grayscale(0%);
+opacity: 1;
+}
+.carousel-indicators [data-bs-target] {
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background-color: #000 !important;
+opacity: 0.25;
+margin: 5px;
+transition: opacity 0.3s ease;
+}
+.carousel-indicators .active {
+opacity: 1;
+}
+
+footer {
+  background-color: black;
+  width: 100%;
+  margin-top: auto; /* This pushes the footer to the bottom */
+  padding: 0 0; /* Adjust padding as needed */
+}
+
+/* This will prevent any unwanted spacing */
+* {
+  box-sizing: border-box;
+}
+</style>
+</head>
+<body>
+<div class="fixed-enquiry-btn">
+  <button class="enquiry-btn" data-bs-toggle="modal" data-bs-target="#enquiryModal">
+    Enquire Now!
+  </button>
+</div>
+<div class="modal fade" id="enquiryModal" tabindex="-1" aria-labelledby="enquiryModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="enquiryModalLabel">Enquire Now</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-2">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" required>
+          </div>
+           <label for="phone" class="mb-2">Phone Number</label>
+  <div class="custom-button-style mb-2">
+    <input id="phone" type="tel" placeholder="ㅤ">
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/js/intlTelInput.min.js"></script>
+  <script>
+    const input = document.querySelector("#phone");
+    const iti = window.intlTelInput(input, {
+      separateDialCode: true,
+      initialCountry: "in",
+      preferredCountries: ["in", "us", "gb"],
+      utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/js/utils.js"
+    });
+  </script>
+          <div class="mb-2">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" required>
+          </div>
+          <div class="mb-2">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" rows="1"></textarea>
+          </div>
+          <button type="submit" class="btn btn-danger w-100">
+            <i class="fas fa-location-arrow me-0"></i> Submit
+          </button>
+        </form>
+      </div>
+      <div class="modal-footer d-flex flex-column align-items-center">
+        <div class="d-flex justify-content-center mb-2">
+          <a href="#" target="_blank" class="icon-link mx-2">
+            <i class="fas fa-home"></i>
+          </a>
+          <a href="#" target="_blank" class="icon-link mx-2">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+        <div class="d-flex align-items-center">
+          <img src="https://embed.tawk.to/_s/v4/assets/images/Tawky_16x16.svg" alt="tawk.to logo" style="height: 16px; width: 16px; margin-right: 5px;">
+          <a href="#" class="text-center text-decoration-none" target="_blank" style="font-size: 0.8rem;">Powered by tawk.to</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Required Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Your existing script (unchanged) -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('selected-flag').className = 'fi fi-in me-2';
+  document.getElementById('selected-code').textContent = '+91';
+});
+
+document.querySelectorAll('.dropdown-item').forEach(item => {
+  item.addEventListener('click', function(e) {
+    e.preventDefault();
+    const code = this.getAttribute('data-code');
+    const flag = this.getAttribute('data-flag');
+
+    document.getElementById('selected-code').textContent = code;
+    const flagElement = document.getElementById('selected-flag');
+    flagElement.className = `fi fi-${flag} me-2`;
+    flagElement.style.fontSize = '1.2em';
+
+    document.querySelectorAll('.dropdown-item').forEach(i => i.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+</script>
+  <header style="background-color: black;" class="fixed-top">
+    <nav class="navbar navbar-dark">
+      <div class="container-fluid">
+        <div class="row w-100 align-items-center">
+          <div class="d-flex justify-content-between align-items-center d-xl-none w-100 py-2">
+            <a class="navbar-brand" href="#">
+              <img src="https://www.budindia.com/images/Advertising-agency-bangalore-Logo.png" alt="Logo" height="40">
+            </a>
+            <div class="text-end">
+              <button class="btn p-0 border-0 bg-transparent" type="button" onclick="toggleMenu()">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ35Xpndp4PIv5kEL5_U3bs6vcb1PTw8JdL_g&s" alt="menu" width="30" height="30">
+              </button>
+              <div class="mobile-phone">
+                <a href="#" class="text-white text-decoration-none">
+                  <i class="bi bi-telephone-fill"></i> +91 98 86 833138
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-auto d-none d-xl-flex align-items-center">
+            <a class="navbar-brand" href="#">
+              <img src="https://www.budindia.com/images/Advertising-agency-bangalore-Logo.png" alt="Logo" height="50">
+            </a>
+          </div>
+          <div class="col-md d-none d-xl-block">
+            <div class="d-flex justify-content-end overflow-auto flex-nowrap">
+              <ul class="navbar-nav flex-row flex-nowrap align-items-center" style="gap: 10px;">
+                <li class="nav-item"><a class="nav-link px-1" style="font-size:14px; white-space:nowrap;" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link px-1" style="font-size:14px; white-space:nowrap;" href="#">Know Us</a></li>
+                <li class="nav-item"><a class="nav-link px-1" style="font-size:14px; white-space:nowrap;" href="#">Services</a></li>
+                <li class="nav-item"><a class="nav-link px-1" style="font-size:14px; white-space:nowrap;" href="#">Work</a></li>
+                <li class="nav-item"><a class="nav-link px-1" style="font-size:14px; white-space:nowrap;" href="#">Case Study</a></li>
+                <li class="nav-item"><a class="nav-link px-1" style="font-size:14px; white-space:nowrap;" href="#">Digital Marketing</a></li>
+                <li class="nav-item"><a class="nav-link px-1" style="font-size:14px; white-space:nowrap;" href="#">Social Media</a></li>
+                <li class="nav-item"><a class="nav-link px-1" style="font-size:14px; white-space:nowrap;" href="#">Film</a></li>
+                <li class="nav-item"><a class="nav-link px-1" style="font-size:14px; white-space:nowrap;" href="#">Website Design</a></li>
+                <li class="nav-item"><a class="nav-link px-1" style="font-size:14px; white-space:nowrap;" href="#">Contact</a></li>
+                <li class="nav-item">
+                  <a class="nav-link px-3" style="font-size:13px; white-space:nowrap;" href="#">
+                    <i class="bi bi-telephone-fill"></i> +91 98 86 833138
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="customMenu" class="d-xl-none">
+        <a href="#">Home</a>
+        <a href="#">Know Us</a>
+        <a href="#">Services</a>
+        <a href="#">Work</a>
+        <a href="#">Case Study</a>
+        <a href="#">Digital Marketing</a>
+        <a href="#">Social Media</a>
+        <a href="#">Film</a>
+        <a href="#">Website Design</a>
+        <a href="#">Contact</a>
+      </div>
+    </nav>
+  </header>
+<section style="position: relative; padding-top: 80px;">
+<img src="https://www.budindia.com/images/social-media/latest/hyd/banner-hyd.webp" alt="" class="img-fluid w-100" style="height: 100%;">
+<div class="container text-white text-center"></div>
+</section>
+<section class="py-5" style="background-color: #fff;">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-lg-7">
+<h4 class="text-danger fw-semibold mb-1">TOP SOCIAL MEDIA MARKETING COMPANY IN HYDERABAD</h2>
+<p style="color: #666; font-size: 1rem; line-height: 1.4;">
+In a dynamic digital arena, Bud emerges as the foremost social media marketing company in Hyderabad. 
+Our firm allegiance is to elevate your brand's online presence with our 
+<a href="https://www.budindia.com/blog/social-media-strategies-to-help-entrepreneurs-dominate-their-niches.php" style="color: #666; text-decoration: underline;">social media marketing strategies</a>.
+Our marketing strategies focus on fostering communities, boosting engagement, and crafting viral content.
+Connecting with your target audience rather than in pursuit of follower count is our main focus. 
+With Bud, embrace a social media marketing experience that transcends superficial metrics.
+We specialize in driving genuine business growth. We foster brand loyalty through our innovative 
+social media marketing campaigns that ignite the social sphere.
+</p>
+</div>
+<div class="col-lg-5 mt-4 mt-lg-0">
+<div class="p-4 rounded" style="background: linear-gradient(to bottom right, #ff8a65, #ff5252); max-width: 350px; margin: 0 auto;">
+<h5 class="text-white mb-3 text-center">GET IN TOUCH WITH US</h5>
+<div style="max-width: 280px; margin: 0 auto;">
+<form>
+<input type="text" class="form-control mb-3" placeholder="Full Name" required 
+style="background-color: #e6b2b2; color: #000000;">
+<input type="email" class="form-control mb-3" placeholder="Email Address" required 
+style="background-color: #e6b2b2; color: #000000;">
+<input type="tel" class="form-control mb-3" placeholder="Phone Number" required 
+style="background-color: #e6b2b2; color: #000000;">        
+<input type="text" class="form-control mb-3" placeholder="Company Name" 
+style="background-color: #e6b2b2; color: #000000;">
+<textarea class="form-control mb-3" rows="2" placeholder="Message" 
+style="background-color: #e6b2b2; color: #000000;"></textarea>
+<div class="bg-white p-2 mb-3 rounded" style="height: 80px;">
+<input type="checkbox" style="transform: scale(1.5); margin-right: 10px;"> I'm not a robot
+<div style="font-size: 10px; color: #888;">reCAPTCHA<br><span>Privacy - Terms</span></div>
+</div>
+<center><button type="submit" class="btn btn-light w-50 text-danger">Enquire Now</button></center> 
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-5" style="background-color: #f9f9f9;">  <div class="container text-center">
+<h4 class="text-danger mb-4 fw-semibold text-uppercase">
+UNVEIL THE ART OF SOCIAL MEDIA MARKETING: THE ALCHEMY TO MASTERING KEY PLATFORMS
+</h4>
+<p style="color: #666; font-size: 1.05rem; max-width: 900px; margin: 0 auto; line-height: 1.5;">
+With a decade-long legacy, Bud stands as a premier social media marketing company in Hyderabad.
+From the professional realm of LinkedIn to the vibrant social media platforms our mastery extends.
+By harnessing the distinctive strengths of each platform, we propel your brand's reach.
+And assist you in elevating engagement, and leaving an impact through our marketing campaigns.
+Our campaigns are crafted and intricately tailored to navigate the subtleties of every platform.
+In Bud, it's about forging resonance above reaching your audience. We ensure your message
+transcends the digital noise. Experience the art of strategic social media marketing for your
+brand's unparalleled story.
+</p>
+</div>
+</section>
+<section class="py-5">
+<div class="container">
+<div class="d-flex justify-content-center gap-4 mb-5 flex-wrap">
+<button class="btn p-0 border-0 bg-transparent tab-btn active" data-target="linkedin">
+<img src="https://www.budindia.com/images/social-media/latest/logos/linked-in.png" alt="LinkedIn" width="120" height="40">
+</button>
+<button class="btn p-0 border-0 bg-transparent tab-btn" data-target="facebook">
+<img src="https://www.budindia.com/images/social-media/latest/logos/facebook.png" alt="Facebook" width="100" height="40">
+</button>
+<button class="btn p-0 border-0 bg-transparent tab-btn" data-target="youtube">
+<img src="https://www.budindia.com/images/social-media/latest/logos/youtube.png" alt="YouTube" width="100" height="40">
+</button>
+<button class="btn p-0 border-0 bg-transparent tab-btn" data-target="instagram">
+<img src="https://www.budindia.com/images/social-media/latest/logos/instagram.png" alt="Instagram" width="100" height="40">
+</button>
+</div>
+<div id="linkedin" class="tab-content">
+<div class="row align-items-center">
+<div class="col-lg-6">
+<img src="https://www.budindia.com/images/social-media/latest/logos/linked-in.png" alt="LinkedIn Logo" width="100" height="40" class="mb-3">
+<h3 class="mb-3" style="font-size: 1.50rem;">
+Build Professional Networks Like a
+<span style="display: inline-block;"> Pro: LinkedIn Mastery</span>
+</h3>
+<p style="color: #555; line-height: 1.8;">
+LinkedIn is the B2B dynamism hub, where professionals converge, build networks, share wisdom,
+and unveil business opportunities. Bud, the top social media marketing agency in Hyderabad,
+crafts a narrative on this platform and makes your brand cut across the ordinary.
+Bud specializes in curating professional content that resonates with potential business audiences.
+Our marketing strategy includes thought-provoking articles and industry-specific posts for B2B engagement.
+At Bud, we enhance your brand reputation and sculpt online presence and reputation into a monument of professional distinction.
+</p>
+</div>
+<div class="col-lg-6 text-center mt-4 mt-lg-0">
+<img src="https://www.budindia.com/images/social-media/latest/hyd/linked-in-hyderabad.png" alt="LinkedIn Dashboard" class="img-fluid" style="max-width: 90%;">
+</div>
+</div>
+</div>
+<div id="facebook" class="tab-content d-none">
+<div class="row align-items-center">
+<div class="col-lg-6">
+<img src="https://www.budindia.com/images/social-media/latest/logos/facebook.png" alt="Facebook Logo" width="100" height="40" class="mb-3">
+<h3 class="mb-3" style="font-size: 1.50rem;">
+Connect & Engage: <span style="display: inline-block;">Communities Redefined: Facebook Builder</span>
+</h3>
+<p style="color: #555; line-height: 1.8;">
+In the realm of Facebook, Bud's strategy is to cultivate and foster a dynamic community that orbits around your brand. As a pioneer social media marketing agency in Hyderabad, we create content and craft experiences. We aim to resonate and invite meaningful interaction. Our social media management prowess includes engaging polls that spark discussions to seamless sharing. Our targeted PPC ad campaigns on Facebook are designed to maximize reach and engagement. We, as a proficient digital marketing agency, harness the extensive user base of the platform. And establish connections with a wider and customized audience for your brand.
+</p>
+</div>
+<div class="col-lg-6 text-center mt-4 mt-lg-0">
+<img src="https://www.budindia.com/images/social-media/latest/hyd/fb-hyd.png" alt="Facebook Campaign" class="img-fluid" style="max-width: 90%;">
+</div>
+</div>
+</div>
+<div id="youtube" class="tab-content d-none">
+<div class="row align-items-center">
+<div class="col-lg-6">
+<img src="https://www.budindia.com/images/social-media/latest/logos/youtube.png" alt="YouTube Logo" width="100" height="40" class="mb-3">
+<h3 class="mb-3" style="font-size: 1.50rem;">
+Video is King: <span style="display: inline-block;">The Video Marketing Legend - YouTube</span>
+</h3>
+<p style="color: #555; line-height: 1.8;">
+As a contemporary social media marketing agency in Hyderabad, we recognize the pivotal role YouTube plays among the multitude of social media platforms. In the realm of social media content, we understand the profound impact of videos. 
+And curate informative updates, compelling brand narratives, and engaging YouTube shorts. Every piece is meticulously designed to elevate brand visibility and foster meaningful engagement. Our commitment extends to video SEO (search engine optimization).
+ We ensure your content captures attention and ranks prominently in YouTube search results. This strategic approach propels your reach across diverse social media platforms. and establishes a robust digital presence for your brand.
+</p>
+</div>
+<div class="col-lg-6 text-center mt-4 mt-lg-0">
+<img src="https://www.budindia.com/images/social-media/latest/hyd/yt-hyd.png" alt="YouTube Strategy" class="img-fluid" style="max-width: 90%;">
+</div>
+</div>
+</div>
+<div id="instagram" class="tab-content d-none">
+<div class="row align-items-center">
+<div class="col-lg-6">
+<img src="https://www.budindia.com/images/social-media/latest/logos/instagram.png" alt="Instagram Logo" width="100" height="40" class="mb-3">
+<h3 class="mb-3" style="font-size: 1.50rem;">
+Visual Brilliance: <span style="display: inline-block;">Elevate your visual InstaTales: Instagram</span>
+</h3>
+<p style="color: #555; line-height: 1.8;">
+In the social media platform era, Instagram stands out as a visual storytelling. At Bud, we specialize in crafting striking content. 
+And we craft content aligned with your brand's aesthetics and core message. We have chosen a holistic approach to social media management. 
+We embrace stories, reels, and regular posts, seamlessly into cohesive and engaging narratives. We understand the significance of aesthetic grids beyond conventional strategies in amplifying engagement. 
+Bud is not just a leading social media marketing company in Hyderabad but also a top-tier digital marketing agency. We extend our mastery to leverage Instagram's shoppable posts. 
+And transform your platform into a direct avenue for engagement and conversions. With targeted campaigns and pay-per-click initiatives, we ensure your brand's tangible success.
+</p>
+</div>
+<div class="col-lg-6 text-center mt-4 mt-lg-0">
+<img src="https://www.budindia.com/images/social-media/latest/hyd/insta-hyd.png" alt="Instagram Strategy" class="img-fluid" style="max-width: 90%;">
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>
+const tabButtons = document.querySelectorAll('.tab-btn');
+const contents = document.querySelectorAll('.tab-content');
+tabButtons.forEach(btn => {
+btn.addEventListener('click', () => {
+tabButtons.forEach(b => b.classList.remove('active'));
+contents.forEach(c => c.classList.add('d-none'));
+btn.classList.add('active');
+const target = btn.getAttribute('data-target');
+document.getElementById(target).classList.remove('d-none');
+});
+});
+</script>
+<section class="py-5" style="background-color: #f9f9f9;">
+<div class="container text-center">
+<h4 class="text-danger fw-semibold mb-4" style="text-transform: uppercase;">
+A Journey from Reach to Results: A Real Engagement
+</h4>
+<p class="mx-auto" style="max-width: 850px; color: #555; line-height: 1.5;">
+Bud offers comprehensive social media marketing services. Our services are crafted to address the dimensions of your brand's digital footprint. From creating compelling content to setting up targeted marketing campaigns. Our expertise in strategic social media management, meticulous media planning, and impactful email marketing are tailored for holistic digital success. At Bud, we anticipate nothing less than bespoke and 
+<a href="https://www.budindia.com/services.php" style="color: #555; text-decoration: underline;">customized services</a>. We 
+<a href="https://www.budindia.com/blog/types-of-social-media-content-for-engagement.php" style="color: #555; text-decoration: underline;">elevate your engagement rates</a> and fortify your online brand presence. We work with a commitment to excellence that sets your brand apart in the digital landscape.
+</p>
+<p class="mt-4 mx-auto" style="max-width: 700px; color: #666; line-height: 1.5;">
+Being the topmost social media marketing agencies in Hyderabad we provide customized services. Our social media management is professional and customized services. They are as follows:
+</p>
+</div>
+</section>
+<section>
+<div class="container">
+<div class="row g-4">
+<div class="col-md-6 col-lg-4">
+<div class="p-4 text-white rounded-3 h-200" style="background-color: #ef5b5b;">
+<h5 class="fw-semibold mb-3">Account management</h5>
+<ul class="list-unstyled mb-0">
+<li>▸ Social Media Strategy Formulation</li>
+<li>▸ Social Media Planning</li>
+<li>▸ SM marketing campaign set up</li>
+<li>▸ Account Setup</li>
+</ul>
+</div>
+</div>
+<div class="col-md-6 col-lg-4">
+<div class="p-4 rounded-3 h-200 border" style="background-color: #fff;">
+<h5 class="fw-semibold mb-3">Content management</h5>
+<ul class="list-unstyled mb-0 text-dark">
+<li>▸ Content Creation</li>
+<li>▸ Bio & Description Copy</li>
+<li>▸ Calendar Formulation</li>
+<li>▸ Keywords & Hashtags Research</li>
+</ul>
+</div>
+</div>
+<div class="col-md-6 col-lg-4">
+<div class="p-4 text-white rounded-3 h-200" style="background-color: #ef5b5b;">
+<h5 class="fw-semibold mb-3">Posting</h5>
+<ul class="list-unstyled mb-0">
+<li>▸ Optimal Time Analysis</li>
+<li>▸ Consistent Posting</li>
+<li>▸ Writing Optimised Captions</li>
+<li>▸ DMs Handling</li>
+</ul>
+</div>
+</div>
+<div class="col-md-6 col-lg-4">
+<div class="p-4 rounded-3 h-200 border" style="background-color: #fff;">
+<h5 class="fw-semibold mb-3">Maintenance & Reporting</h5>
+<ul class="list-unstyled mb-0 text-dark">
+<li>▸ Business Page Management</li>
+<li>▸ Analytics & Insights</li>
+<li>▸ Monthly Reports</li>
+</ul>
+</div>
+</div>
+<div class="col-md-6 col-lg-4">
+<div class="p-4 text-white rounded-3 h-200" style="background-color: #ef5b5b;">
+<h5 class="fw-semibold mb-3">In-organic</h5>
+<ul class="list-unstyled mb-0">
+<li>▸ Boost Campaigns</li>
+<li>▸ PPC (Paid-Per-Click)</li>
+<li>▸ Conversion Tracking</li>
+</ul>
+</div>
+</div>
+<div class="col-md-6 col-lg-4">
+<div class="p-4 rounded-3 h-100 border" style="background-color: #fff;">
+<h5 class="mb-3">Want to know more<br>about our services ?</h5>
+<a href="tel:+919876543210" class="btn text-white px-4 py-2" style="
+background: linear-gradient(to right, #FF7C42, #F857A6);
+border: none;
+border-radius: 8px;
+font-weight: 500;
+font-size: 16px;
+">
+Call Now
+</a>
+</div>
+</div>
+</div>
+</div>
+<section class="py-5 bg-white position-relative overflow-hidden">
+<div class="container">
+<h4 class="text-center text-danger fw-semibold mb-5">BUZZING CASE STUDIES</h4>
+<div class="position-relative">
+<div id="caseStudyCarousel" class="carousel slide px-lg-5" data-bs-ride="carousel" style="overflow: visible;">
+<div class="carousel-inner">
+<div class="carousel-item active">
+<div class="row align-items-center">
+<div class="col-lg-5 text-center text-lg-start mb-4 mb-lg-0">
+<img src="https://www.budindia.com/images/social-media/latest/dsr-logo.png" alt="DSR Group Logo" class="mb-3" style="max-width: 150px;">
+<p class="mb-3 fs-5 text-secondary">Cementing likes, shares & conversions organically</p>
+<a href="https://www.budindia.com/dsr-casestudy.php" class="btn btn-danger px-4 py-2 shadow-sm">Read Case Study</a>
+</div>
+<div class="col-lg-7 text-center">
+<img src="https://www.budindia.com/images/social-media/latest/hyd/dsr-hyd.jpg" alt="DSR Case Image" class="img-fluid" style="width: 100%; max-height: 350px; object-fit: cover;">
+</div>
+</div>
+<div class="row justify-content-center mt-4">
+<div class="col-md-10 col-lg-8">
+<div class="bg-white shadow rounded-4 px-4 py-4">
+<div class="row text-center fw-semibold text-muted small">
+<div class="col-4">CLIENT RESULTS</div>
+<div class="col-4">FACEBOOK</div>
+<div class="col-4">INSTAGRAM</div>
+</div>
+<hr class="my-2">
+<div class="row text-center mb-2">
+<div class="col-4 text-secondary">PAGE & PROFILE VISITS</div>
+<div class="col-4 text-dark fw-bold">+90.4%</div>
+<div class="col-4 text-dark fw-bold">+136.2%</div>
+</div>
+<div class="row text-center">
+<div class="col-4 text-secondary">ENGAGEMENT: REACH</div>
+<div class="col-4 text-dark fw-bold">+27.5%</div>
+<div class="col-4 text-dark fw-bold">+80.1%</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="carousel-item">
+<div class="row align-items-center">
+<div class="col-lg-5 text-center text-lg-start mb-4 mb-lg-0">
+<img src="https://www.budindia.com/images/social-media/latest/play-salon-logo.png" alt="Anuhar Logo" class="mb-3" style="max-width: 150px;">
+<p class="mb-3 fs-5 text-secondary">Rejuvenating feed. Pampering traction.</p>
+<a href="https://www.budindia.com/playsalon-casestudy.php" class="btn btn-danger px-4 py-2 shadow-sm">Read Case Study</a>
+</div>
+<div class="col-lg-7 text-center">
+<img src="https://www.budindia.com/images/social-media/latest/hyd/psln-hyd.jpg" alt="Anuhar Case Image" class="img-fluid" style="width: 100%; max-height: 350px; object-fit: cover;">
+</div>
+</div>
+<div class="row justify-content-center mt-4">
+<div class="col-md-10 col-lg-8">
+<div class="bg-white shadow rounded-4 px-4 py-4">
+<div class="row text-center fw-semibold text-muted small">
+<center><div class="col-4">CLIENT RESULTS</div></center>
+</div>
+<hr class="my-2">
+<div class="row text-center mb-2">
+<div class="col-4 text-secondary">Clicks</div>
+<div class="col-4 text-dark fw-bold">+697.7%</div>
+<div class="col-4 text-dark fw-bold">+92.7%</div>
+</div>
+<div class="row text-center">
+<div class="col-4 text-secondary">Impressions</div>
+<div class="col-4 text-dark fw-bold">+338.8%</div>
+<div class="col-4 text-dark fw-bold">+68.4%</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<button class="carousel-control-prev d-none d-lg-flex align-items-center justify-content-center"
+type="button"
+data-bs-target="#caseStudyCarousel"
+data-bs-slide="prev"
+style="width: 45px; height: 45px; z-index: 10; background: #767575; border-radius: 6px; position: absolute; left: -25px; top: 50%; transform: translateY(-50%); box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+<span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(1); width: 18px; height: 18px;"></span>
+<span class="visually-hidden">Previous</span>
+</button>
+<button class="carousel-control-next d-none d-lg-flex align-items-center justify-content-center"
+type="button"
+data-bs-target="#caseStudyCarousel"
+data-bs-slide="next"
+style="width: 45px; height: 45px; z-index: 10; background: #767575; border-radius: 6px; position: absolute; right: -25px; top: 50%; transform: translateY(-50%); box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+<span class="carousel-control-next-icon" aria-hidden="true" style="filter: brightness(0) invert(1); width: 18px; height: 18px;"></span>
+<span class="visually-hidden">Next</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<section class="py-5" style="background-color: #f9f9f9;">
+<div class="container text-center">
+<h4 class="text-danger fw-semibold mb-4">TRACTION REDEFINED: WHERE BUD DELIVERS AND ELEVATES</h4>
+<p class="text-secondary mb-5 mx-auto" style="max-width: 900px;">
+Bud has been a driving force for over a decade. It is rising as a prominent leader among social media marketing agencies in Hyderabad. Our extensive social media management experience encompasses diverse sectors, both B2B and B2C. Each with its distinct digital persona. Whether catering to startups or established corporations, our bespoke <a href="#" class="text-danger text-decoration-none">social media marketing services</a> amplify the essence of each industry. This approach guarantees not only maximum online traction. But also strategic competitive positioning across the most influential social media platforms.
+</p>
+<div id="logoCarousel" class="carousel slide" data-bs-ride="carousel">
+<div class="carousel-inner">
+<div class="carousel-item active">
+<div class="row justify-content-center align-items-center g-4">
+<div class="col-6 col-sm-3">
+<img src="https://www.budindia.com/images/clients-logos/Logos/newmens.png" class="img-fluid opacity-50" alt="Newmen's Logo">
+</div>
+<div class="col-6 col-sm-3">
+<img src="https://www.budindia.com/images/clients-logos/Logos/Triveni.png" class="img-fluid opacity-50" alt="Triveni Logo">
+</div>
+<div class="col-6 col-sm-3">
+<img src="https://www.budindia.com/images/clients-logos/Logos/sriganesh.png" class="img-fluid opacity-50" alt="Sri Ganesh Logo">
+</div>
+<div class="col-6 col-sm-3">
+<img src="https://www.budindia.com/images/clients-logos/Logos/playsalon.png" class="img-fluid opacity-50" alt="Aplay Logo">
+</div>
+</div>
+</div>
+<div class="carousel-item">
+<div class="row justify-content-center align-items-center g-4">
+<div class="col-6 col-sm-3">
+<img src="https://www.budindia.com/images/clients-logos/Logos/furnaffair.png" class="img-fluid opacity-50" alt="CEAT Logo">
+</div>
+<div class="col-6 col-sm-3">
+<img src="https://www.budindia.com/images/clients-logos/Logos/rugtek.png" class="img-fluid opacity-50" alt="Gayathri Logo">
+</div>
+<div class="col-6 col-sm-3">
+<img src="https://www.budindia.com/images/clients-logos/Logos/DSR.png" class="img-fluid opacity-50" alt="Sodexo Logo">
+</div>
+<div class="col-6 col-sm-3">
+<img src="https://www.budindia.com/images/clients-logos/Logos/Misri_1.png" class="img-fluid opacity-50" alt="Boss Logo">
+</div>
+</div>
+</div>
+</div>
+<div class="carousel-indicators mt-4">
+<button type="button" data-bs-target="#logoCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+<button type="button" data-bs-target="#logoCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+</div>
+</div>
+</div>
+</section>
+<section class="py-5 bg-white">
+<div class="container">
+<h4 class="text-center text-danger fw-semibold mb-3">
+WHY TAKE THE LEAD WITH BUD AS YOUR ULTIMATE SOCIAL MEDIA PARTNER?
+</h4>
+<p class="text-center text-secondary mb-5" style="max-width: 900px; margin: auto;">
+As a premier social media marketing agency in Hyderabad, Bud strives for innovation and impact. We excel in our cutting-edge digital strategies. Our social media marketing campaigns are a fusion of local market insights and global trends. We are creating not just trends but measurable business outcomes. Partnering with Bud is experiencing a collaboration. It propels your brand to viral fame and tangible success. With our Social Media Strategies, anticipate a transformative journey that delivers:
+</p>
+<div class="text-center">
+<img src="https://www.budindia.com/images/social-media/latest/partner.png" alt="Bud Marketing Strategy Steps" class="img-fluid">
+</div>
+</div>
+</section>
+<section class="py-5" style="background-color: #f9f9f9;">
+<div class="container">
+<h4 class="text-center text-danger fw-semibold mb-3">
+CHART YOUR COURSE TO SUCCESS: ONBOARD WITH THE SOCIAL MEDIA EXPERTS
+</h4>
+<p class="text-center text-secondary mb-5" style="max-width: 900px; margin: auto;">
+Bud boasts a robust social media management team. Our team comprises skilled content creators, creative designers, strategists, a dedicated pay-per-click unit, and an expert digital marketing team. At Bud, Social Media Marketing transcends mere execution. It's a meticulously curated process, unfolding through the following strategic steps:
+</p>
+<div class="text-center">
+<img src="https://www.budindia.com/images/social-media/latest/steps.png" alt="Social Media Process Steps" class="img-fluid">
+</div>
+</div>
+</section>
+<section class="py-4 bg-white">
+<div class="container">
+<h4 class="text-center text-danger fw-semibold mb-3">
+Impact Engine: Bud's Customized Social Media Triumph
+</h4>
+<p class="text-center text-secondary mb-5" style="max-width: 900px; margin: auto;">
+Bud goes beyond the ordinary, providing customized service in social media marketing. It aims to seamlessly align with not just your goals but also your budget.
+As one of the expert social media marketing agencies in Hyderabad, we deliver comprehensive services. And specific strategies like influencer collaboration and targeted ad campaigns. 
+We are always ready to tailor our offerings to fit your needs across multiple social media platforms.
+</p>
+</div>
+</section>
+<section class="py-4" style="background-color:  #f9f9f9;">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-lg-6 mb-2 mb-lg-0">
+<h4 class="text-danger fw-semibold mb-2">
+INTEGRATED BRILLIANCE UNLEASHED: BUD'S MARKETING STRATEGY
+</h4>
+<p class="text-secondary">
+Bud is not just restricted to social media marketing. We believe in the marketing strategy of IMC aka Integrated marketing communication.
+Our approach is to seamlessly integrate every facet of marketing content. And to ensure a harmonious and consistent brand message across all channels, both online and offline.
+At Bud, we don't just do website design. We also inculcate and resonate with what your brand stands for in the website design.
+The same will be delivered across other platforms like
+<a href="https://www.budindia.com/content-and-email-marketing-company-bangalore.php" class="text-decoration-underline text-secondary">email marketing</a>, and digital strategies.
+Our <a href="https://www.budindia.com/seo-company-bangalore.php" class="text-decoration-underline text-secondary">SEO (search engine optimization)</a> ensures not just visibility but a prominent stance that keeps you ahead in the competitive landscape.
+</p>
+</div>
+<div class="col-lg-6 text-center">
+<img src="https://www.budindia.com/images/social-media/latest/hyd/intg-brilliance.webp" alt="Marketing Strategy Illustration" class="img-fluid" style="max-width: 100%; height: auto;">
+</div>
+</div>
+</div>
+</section>
+<section class="py-4 bg-white">
+<div class="container">
+<p class="text-center text-secondary mb-4" style="max-width: 900px; margin: auto;">
+In the digital era, social media marketing is not just a choice; it's a necessity. 
+Entrusting your brand to a premier social media marketing company in Hyderabad, 
+such as Bud, ensures more than just breaking through the clutter—it guarantees 
+the creation of a resonant buzz across trending social media platforms. 
+At Bud, we understand that a one-size-fits-all strategy won't cut it in the new age of social media. 
+Our approach involves curated digital strategies tailored to etch your brand's presence uniquely on each platform.
+Don't delay; the social space is waiting to amplify your brand. Call us now and let's embark on a journey of digital distinction together!
+</p>
+<center><button type="submit" class="btn btn-danger text-white pt-2" style="width: 190px;">Call Us Now!</button></center>
+</section>
+<section class="pt-4 text-center bg-white">
+    <div class="container">
+      <h4 class="fw-bold text-danger text-uppercase">
+        WE ARE AN OFFICIAL GOOGLE PARTNER
+      </h4>
+      <div class="py-2 img-fluid">
+        <a href="#">
+          <img src="https://www.budindia.com/images/google-partner-logo-1.jpg" alt="Logo" height="180"></a>
+      </div>
+    </div>
+    </div>
+  </section>
+  <section class="bg-dark text-white pt-5 pb-5">
+    <div class="container text-center text-md-start">
+      <h4 class="text-center text-uppercase fw-bold pt-2 mb-5">Is there something you want to discuss with us?</h4>
+      <div class="text-center pt-1 mb-5">
+        <a href="#" class="btn btn-danger px-3 py-2">LEAVE A MESSAGE</a>
+      </div>
+      <div class="row">
+        <div class="col-md-2 mb-5">
+          <ul class="list-unstyled">
+            <li class="d-flex justify-content-between align-items-center">
+              <a href="#"
+                class="text-white text-decoration-none footer-hover">Careers</a>
+              <a href="#"><i class="bi bi-instagram fs-4 text-white"></i></a>
+            </li>
+            <li class="pb-2"><a href="#"
+                class="text-white text-decoration-none footer-hover">Know us</a></li>
+            <li class="pb-2"><a href="#"
+                class="text-white text-decoration-none footer-hover">Works</a></li>
+            <li class="pb-2"><a href="#"
+                class="text-white text-decoration-none footer-hover">Clients</a></li>
+            <li class="pb-2"><a href="#"
+                class="text-white text-decoration-none footer-hover">Blogs</a></li>
+          </ul>
+        </div>
+        <div class="col-md-6 mb-5">
+          <h5 class="mb-3">Our services</h5>
+          <div class="row">
+            <div class="col-6 col-md-4">
+              <ul class="list-unstyled small">
+                <li class="pb-3"><a href="#"
+                    class="text-white text-decoration-none footer-hover">Advertising agency</a></li>
+                <li class="pb-3"><a
+                    href="#"
+                    class="text-white text-decoration-none footer-hover">Digital marketing agency</a></li>
+                <li class="pb-3"><a href="#"
+                    class="text-white text-decoration-none footer-hover">Web development company</a></li>
+                <li class="pb-3"><a href="#"
+                    class="text-white text-decoration-none footer-hover">SEO company</a></li>
+                <li class="pb-3"><a href="#"
+                    class="text-white text-decoration-none footer-hover">PPC agency</a></li>
+                <li class="pb-3"><a
+                    href="#"
+                    class="text-white text-decoration-none footer-hover">Social media agency</a></li>
+                <li class="pb-3"><a
+                    href="#"
+                    class="text-white text-decoration-none footer-hover">Email marketing</a></li>
+                <li class="pb-3"><a href="#"
+                    class="text-white text-decoration-none footer-hover">Shopify web development</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-md-4">
+              <ul class="list-unstyled small mx-3">
+                <li class="pb-3"><a
+                    href="#"
+                    class="text-white text-decoration-none footer-hover">Influencer marketing</a></li>
+                <li class="pb-3"><a href="#"
+                    class="text-white text-decoration-none footer-hover">PR agency</a></li>
+                <li class="pb-3"><a
+                    href="#"
+                    class="text-white text-decoration-none footer-hover">Performance marketing</a></li>
+                <li class="pb-3"><a href="#"
+                    class="text-white text-decoration-none footer-hover">TVC advertising</a></li>
+                <li class="pb-3"><a href="#"
+                    class="text-white text-decoration-none footer-hover">UI/UX Designing</a></li>
+                <li class="pb-3"><a href="#"
+                    class="text-white text-decoration-none footer-hover">Video production company</a></li>
+                <li class="pb-3"><a href="#"
+                    class="text-white text-decoration-none footer-hover">logo design company</a></li>
+                <li class="pb-3"><a href="#"
+                    class="text-white text-decoration-none footer-hover">Web hosting company</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-md-4">
+              <ul class="list-unstyled small mx-3">
+                <li class="pb-3"><a href="#"
+                    class="text-white text-decoration-none footer-hover">Youtube marketing</a></li>
+                <li class="pb-3"><a href="#"
+                    class="text-white text-decoration-none footer-hover">Ecommerce development company</a></li>
+                <li class="pb-3"><a
+                    href="#"
+                    class="text-white text-decoration-none footer-hover">Branding agency</a></li>
+                <li class="pb-3"><a href="#"
+                    class="text-white text-decoration-none footer-hover">Creative agency</a></li>
+                <li class="pb-3"><a href="#"
+                    class="text-white text-decoration-none footer-hover">Digital marketing healthcare</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-5 border-start ps-md-4">
+          <h5 class="mb-3">Get in touch with us</h5>
+          <p class="mb-3">Bud Ideas Unboxed LLP</p>
+          <p class="mb-4 py-1">
+            <i class="bi bi-geo-alt-fill text-danger pe-2"></i>Bud Creative Ad Agency<br>
+            <a href="#"
+              style="font-size: 14px; text-decoration: none; color: #fff; cursor: pointer;" class="footer-hover">
+              C-3, Padi Pudur Nagar,<br>
+              Anna Nagar West, Mogappair East,<br>
+              Chennai, Tamil Nadu 600 037.</a>
+          </p>
+          <p class="mb-1 fs-6">
+            <i class="fa fa-address-book text-danger mb-1 pe-2"></i>Contact us :<br>
+          </p>
+          <p><a href="#" style="font-size: 14px; text-decoration: none; color: #fff; cursor: pointer;"
+              class="footer-hover">
+              Mobile : +91 98 86 833138 </a><br>
+            <a href="#" style="font-size: 14px; text-decoration: none; color: #fff; cursor: pointer;"
+              class="footer-hover">Email : manoj@budindia.com</a>
+          </p>
+          <p class="mb-1">Andhra/Telangana (Hyd)</p>
+          <p>
+            <a href="#" style="font-size: 14px; text-decoration: none; color: #fff; cursor: pointer;"
+              class="footer-hover"><i class="bi bi-telephone-fill text-danger mb-1 pe-2"></i>
+              +91 87 92 994266</a>
+          </p>
+          <p class="mb-1">Tamilnadu (Chennai)</p>
+          <p>
+            <a href="#" style="font-size: 14px; text-decoration: none; color: #fff; cursor: pointer;"
+              class="footer-hover"><i class="bi bi-telephone-fill text-danger mb-1 pe-2"></i>
+              +91 87 92 994266</a>
+          </p>
+          <p class="mb-1">USA Representative<br>
+          </p>
+          <p>
+            <a href="#"
+              style="font-size: 14px; text-decoration: none; color: #fff; cursor: pointer;" class="footer-hover">Laura
+              Gesinde
+              <br><i class="bi bi-telephone-fill text-danger mb-1 pe-2"></i>
+              +1 (832) 469-1843</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+  <section class="bg-dark text-white py-5">
+    <div class="container">
+      <h5 class="mb-0">
+        <a class="text-white text-decoration-none d-flex align-items-center" data-bs-toggle="collapse"
+        href="#quickLinksContent" role="button" aria-expanded="false" aria-controls="quickLinksContent">
+        <span style="color: red;" class="me-2"></span>
+        Quick Links
+        </a>
+      </h5>
+      <div class="collapse" id="quickLinksContent">
+        <hr class="border-light mb-5">
+        <div class="row gy-4">
+          <div class="col-md-3">
+            <ul class="list-unstyled small ps-2">
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Web development company in Bangalore</a></li>
+              <li class="pb-3"><a href="#" class="text-white text-decoration-none">Advertising
+                  agency in Bangalore</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">SEO company in Bangalore</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Logo design company in Bangalore</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Branding agency in Bangalore</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Ecommerce web development company</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Social media marketing agency Bangalore</a></li>
+              <li class="pb-3"><a href=""
+                  class="text-white text-decoration-none">Influencer marketing agency in Bangalore</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <ul class="list-unstyled small ps-2">
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Logo design company in Bangalore</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">PPC company in Bangalore</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Email marketing companies in Bangalore</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">UI/UX design company in Bangalore</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Video production company Bangalore</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Best PR agency in Bangalore</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Google Adwords company in Bangalore</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Web development company in Hyderabad</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Social media marketing company in Hyderabad</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <ul class="list-unstyled small ps-2">
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Web development company Chennai</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">SEO company in Chennai</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">PPC Agency in Chennai</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Social media marketing agency in Pune</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Social media marketing agency in Mumbai</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Web development company Mumbai</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">SEO Company in Coimbatore</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Furniture marketing Agency</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Account based Marketing</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <ul class="list-unstyled small ps-2">
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Web development company in Coimbatore</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Logo designers in Coimbatore</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Shopify developers India</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Web development agency India</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Performance marketing agency in India</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Healthcare digital marketing agency India</a></li>
+              <li class="pb-3"><a href="#"
+                  class="text-white text-decoration-none">Facebook advertising company</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer style="background-color: black;" class="text-white py-2 w-100">
+  <p class="mb-0 text-center">Copyright © Budindia 2025</p>
+  </footer>
+  <script>
+  AOS.init();
+</script>
+</body>
+</html>
